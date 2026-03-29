@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    int i, j;
+    char n[5][50], x[50], p[50];
+
+    for (i = 0; i < 5; i++)
+    {
+        printf("Digite o nome:");
+        fgets(n[i], 50, stdin);
+    }
+
+    for (i = 0; i < 4; i++)
+    {
+        for (j = i + 1; j < 5; j++)
+        {
+            if (strcmp(n[i], n[j]) > 0)
+            {
+                strcpy(x, n[i]);
+                strcpy(n[i], n[j]);
+                strcpy(n[j], x);
+            }
+        }
+    }
+
+    for (j = 0; j < 5; j++)
+    {
+        printf("Nome: %s", n[j]);
+    }
+
+    printf("Que nome vc quer achar:");
+    fgets(p, 50, stdin);
+
+    for (i = 0; i < 5; i++)
+    {
+        if (strcmp(n[i], p) == 0)
+        {
+            puts("Nome foi encontrado!");
+        }
+    }
+}
